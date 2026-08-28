@@ -159,12 +159,70 @@
     .avatar{max-width:260px;margin:0 auto}
     section{padding:70px 6vw}
   }
+
+  /* ===== Mejoras: animaciones e interactividad ===== */
+  /* Orbes de fondo flotantes */
+  .orb{position:fixed;border-radius:50%;filter:blur(72px);z-index:-2;opacity:.45;pointer-events:none}
+  .orb-1{width:420px;height:420px;background:radial-gradient(circle,var(--blue-300),transparent 70%);top:-100px;left:-80px;animation:orbA 16s ease-in-out infinite}
+  .orb-2{width:340px;height:340px;background:radial-gradient(circle,#a5b4fc,transparent 70%);top:42%;right:-100px;animation:orbB 21s ease-in-out infinite}
+  .orb-3{width:300px;height:300px;background:radial-gradient(circle,#bfdbfe,transparent 70%);bottom:-70px;left:34%;animation:orbA 24s ease-in-out infinite}
+  @keyframes orbA{50%{transform:translate(60px,50px) scale(1.12)}}
+  @keyframes orbB{50%{transform:translate(-70px,-50px) scale(1.06)}}
+
+  /* Texto con degradado animado */
+  h1 .accent{background:linear-gradient(90deg,var(--blue-600),var(--blue-400),#60a5fa,var(--blue-600));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:gradText 6s linear infinite}
+  @keyframes gradText{to{background-position:300% 0}}
+
+  /* Entrada escalonada del hero */
+  header .badge,header h1,header .subtitle,header .cta-row{opacity:0;animation:heroIn .85s cubic-bezier(.2,.7,.2,1) forwards}
+  header h1{animation-delay:.1s}
+  header .subtitle{animation-delay:.22s}
+  header .cta-row{animation-delay:.34s}
+  @keyframes heroIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+  /* Tarjetas de proyecto: tilt 3D + spotlight que sigue el cursor */
+  .project{position:relative;--mx:50%;--my:50%;transform-style:preserve-3d;will-change:transform}
+  .project::after{content:'';position:absolute;inset:0;border-radius:22px;
+    background:radial-gradient(340px circle at var(--mx) var(--my),rgba(37,99,235,.16),transparent 55%);
+    opacity:0;transition:opacity .35s;pointer-events:none;z-index:5}
+  .project:hover::after{opacity:1}
+  .project.tilt{transform:perspective(1100px) rotateX(var(--ry,0deg)) rotateY(var(--rx,0deg)) translateY(-10px);transition:transform .1s linear}
+  /* Barrido de brillo en la portada */
+  .project-cover::before{content:'';position:absolute;top:0;left:-130%;width:55%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);transform:skewX(-18deg);
+    transition:left .7s cubic-bezier(.2,.7,.2,1);z-index:2}
+  .project:hover .project-cover::before{left:170%}
+  .glyph{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .project:hover .glyph{transform:scale(1.15) rotate(-6deg)}
+
+  /* Chips y stats interactivos */
+  .chip{transition:transform .2s,background .2s,color .2s,border-color .2s}
+  .chip:hover{background:var(--blue-600);color:#fff;border-color:var(--blue-600);transform:translateY(-2px)}
+  .stat{transition:transform .3s,box-shadow .3s,border-color .3s}
+  .stat:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--blue-300)}
+  .tech .ic{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  .tech:hover .ic{transform:translateY(-4px) scale(1.12)}
+
+  /* Brillo que barre los botones principales */
+  .plink,.btn{position:relative;overflow:hidden}
+  .plink.primary::after,.btn-primary::after{content:'';position:absolute;top:0;left:-125%;width:45%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-18deg);transition:left .6s}
+  .plink.primary:hover::after,.btn-primary:hover::after{left:170%}
+
+  @media(prefers-reduced-motion:reduce){
+    .orb{display:none}
+    *{animation-duration:.001ms!important;animation-iteration-count:1!important}
+    .project.tilt{transform:translateY(-8px)}
+  }
 </style>
 </head>
 <body>
 
 <div class="bg-fx"></div>
 <div class="grid-overlay"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
 
 <nav id="nav">
   <div class="logo"><i class="bi bi-code-slash"></i> Jhoan Zambrano</div>
@@ -370,6 +428,28 @@
     }
   }),{threshold:.5});
   document.querySelectorAll('.num').forEach(c=>cio.observe(c));
+
+  /* Tarjetas: efecto 3D (tilt) + luz que sigue el cursor */
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.project').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=e.clientX-r.left, y=e.clientY-r.top;
+      card.style.setProperty('--mx',x+'px');
+      card.style.setProperty('--my',y+'px');
+      if(reduce)return;
+      const rx=((x/r.width)-.5)*12;      // rotateY
+      const ry=((y/r.height)-.5)*-10;    // rotateX
+      card.style.setProperty('--rx',rx.toFixed(1)+'deg');
+      card.style.setProperty('--ry',ry.toFixed(1)+'deg');
+      card.classList.add('tilt');
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.classList.remove('tilt');
+      card.style.setProperty('--rx','0deg');
+      card.style.setProperty('--ry','0deg');
+    });
+  });
 </script>
 </body>
 </html>
