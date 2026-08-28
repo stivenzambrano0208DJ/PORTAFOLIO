@@ -162,6 +162,7 @@
   .cover-neiv{background:linear-gradient(135deg,var(--blue-600),var(--blue-400))}
   .cover-dj{background:linear-gradient(135deg,var(--blue-900),var(--blue-600))}
   .cover-fo{background:linear-gradient(135deg,var(--blue-500),var(--blue-600))}
+  .cover-ocr{background:linear-gradient(135deg,#0891b2,#059669)}
   .project-cover .glyph{font-size:4rem;color:#fff;z-index:2;filter:drop-shadow(0 4px 14px rgba(0,0,0,.25))}
   .project-cover::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,rgba(255,255,255,.3),transparent 55%)}
   .cover-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:100% 22px;opacity:.6}
@@ -344,6 +345,30 @@
   </div>
   <div class="projects">
 
+    <!-- CRUCE OCR -->
+    <article class="project reveal">
+      <div class="project-cover cover-ocr"><div class="cover-lines"></div><i class="bi bi-upc-scan glyph"></i></div>
+      <div class="project-body">
+        <h3>CruceOCR</h3>
+        <div class="role">OCR + Cruce de datos · Node.js</div>
+        <p>Herramienta web que lee <b>cédulas escaneadas</b> con <b>OCR</b> y las cruza contra una base de inscritos en Excel, clasificando coincidencias, faltantes y duplicados. Con procesamiento en paralelo, progreso en vivo e informe descargable.</p>
+        <ul class="feature-list">
+          <li><i class="bi bi-eye"></i> OCR en español (Tesseract), página por página</li>
+          <li><i class="bi bi-arrow-left-right"></i> Cruce automático contra base en Excel</li>
+          <li><i class="bi bi-images"></i> Comparación visual: cédula + datos</li>
+          <li><i class="bi bi-file-earmark-excel"></i> Informe descargable en Excel</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Tesseract.js</span>
+          <span class="chip">mupdf</span><span class="chip">SheetJS</span><span class="chip">Docker</span>
+        </div>
+        <div class="project-links">
+          <a href="https://ocr.djstevenmix.online/" class="plink primary" target="_blank" rel="noopener"><i class="bi bi-play-circle"></i> Ver demo en vivo</a>
+          <a href="https://github.com/stivenzambrano0208DJ/ProyectoOCR" class="plink sec" target="_blank" rel="noopener"><i class="bi bi-github"></i> Código</a>
+        </div>
+      </div>
+    </article>
+
     <!-- NEIVACTIVA -->
     <article class="project reveal">
       <div class="project-cover cover-neiv"><div class="cover-lines"></div><i class="bi bi-calendar2-check glyph"></i></div>
@@ -421,7 +446,7 @@
   </div>
 
   <div class="stats reveal">
-    <div class="stat"><i class="bi bi-rocket-takeoff"></i><div class="num" data-count="3">0</div><div class="lbl">Apps en producción</div></div>
+    <div class="stat"><i class="bi bi-rocket-takeoff"></i><div class="num" data-count="4">0</div><div class="lbl">Apps en producción</div></div>
     <div class="stat"><i class="bi bi-cpu"></i><div class="num" data-count="10" data-suffix="+">0</div><div class="lbl">Tecnologías</div></div>
     <div class="stat"><i class="bi bi-people"></i><div class="num" data-count="3">0</div><div class="lbl">Roles de usuario</div></div>
     <div class="stat"><i class="bi bi-code-square"></i><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">Código propio</div></div>
@@ -472,6 +497,8 @@
     {ic:'bi-boxes',nm:'Docker',cat:'Despliegue'},
     {ic:'bi-palette',nm:'Tailwind',cat:'CSS'},
     {ic:'bi-filetype-js',nm:'JavaScript',cat:'Frontend'},
+    {ic:'bi-hexagon',nm:'Node.js',cat:'Backend JS'},
+    {ic:'bi-upc-scan',nm:'Tesseract',cat:'OCR'},
     {ic:'bi-shield-check',nm:'Seguridad',cat:'CSRF · Hash'},
     {ic:'bi-file-earmark-pdf',nm:'FPDF',cat:'PDF'},
     {ic:'bi-file-earmark-spreadsheet',nm:'PhpSpreadsheet',cat:'Excel'},
