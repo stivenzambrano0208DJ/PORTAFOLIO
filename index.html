@@ -74,6 +74,8 @@
   .btn-primary:hover{background:var(--blue-700);transform:translateY(-3px);box-shadow:0 14px 34px rgba(37,99,235,.45)}
   .btn-ghost{background:#fff;border:1.5px solid var(--gray-200);color:var(--blue-800)}
   .btn-ghost:hover{border-color:var(--blue-400);color:var(--blue-600);transform:translateY(-3px)}
+  .btn-dark{background:#1f2328;color:#fff;box-shadow:0 8px 24px rgba(31,35,40,.25)}
+  .btn-dark:hover{background:#000;transform:translateY(-3px);box-shadow:0 14px 34px rgba(31,35,40,.35)}
   .scroll-ind{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:1.6rem;animation:bounce 1.8s infinite}
   @keyframes bounce{50%{transform:translate(-50%,10px)}}
 
@@ -99,6 +101,7 @@
   .project-cover{height:170px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
   .cover-neiv{background:linear-gradient(135deg,var(--blue-600),var(--blue-400))}
   .cover-dj{background:linear-gradient(135deg,var(--blue-900),var(--blue-600))}
+  .cover-fo{background:linear-gradient(135deg,var(--blue-500),var(--blue-700))}
   .project-cover .glyph{font-size:4rem;color:#fff;z-index:2;filter:drop-shadow(0 4px 14px rgba(0,0,0,.25))}
   .project-cover::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,rgba(255,255,255,.3),transparent 55%)}
   .cover-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:100% 22px;opacity:.6}
@@ -181,6 +184,7 @@
   <p class="subtitle">Construyo <b>aplicaciones web full-stack</b> con PHP, arquitectura MVC y MySQL. Del backend seguro al panel de administración: convierto ideas en productos reales como <b>NeivActiva</b> y <b>DJ PRO</b>.</p>
   <div class="cta-row">
     <a href="#proyectos" class="btn btn-primary"><i class="bi bi-folder2-open"></i> Ver proyectos</a>
+    <a href="https://github.com/stivenzambrano0208DJ" class="btn btn-dark" target="_blank" rel="noopener"><i class="bi bi-github"></i> Ver mi GitHub</a>
     <a href="#contacto" class="btn btn-ghost"><i class="bi bi-send"></i> Contáctame</a>
   </div>
   <div class="scroll-ind"><i class="bi bi-chevron-double-down"></i></div>
@@ -252,10 +256,35 @@
       </div>
     </article>
 
+    <!-- FORMULARIO OFFLINE -->
+    <article class="project reveal">
+      <div class="project-cover cover-fo"><div class="cover-lines"></div><i class="bi bi-clipboard2-check glyph"></i></div>
+      <div class="project-body">
+        <h3>Formulario Offline</h3>
+        <div class="role">App móvil Android · Full-Stack</div>
+        <p>Aplicación <b>Android</b> para registrar clientes <b>sin conexión</b>: guarda en el dispositivo y <b>sincroniza</b> con un backend propio cuando hay internet. Incluye página de descarga del APK.</p>
+        <ul class="feature-list">
+          <li><i class="bi bi-wifi-off"></i> 100% funcional sin internet (SQLite local)</li>
+          <li><i class="bi bi-clock-history"></i> Historial de teléfonos por cliente</li>
+          <li><i class="bi bi-cloud-arrow-up"></i> Sincronización con API (PostgREST + PostgreSQL)</li>
+          <li><i class="bi bi-shield-lock"></i> HTTPS, API key y despliegue con Docker</li>
+        </ul>
+        <div class="chips">
+          <span class="chip">React Native</span><span class="chip">TypeScript</span><span class="chip">SQLite</span>
+          <span class="chip">PostgREST</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span>
+          <span class="chip">Traefik</span><span class="chip">Caddy</span>
+        </div>
+        <div class="project-links">
+          <a href="https://apk.djstevenmix.online/" class="plink primary" target="_blank" rel="noopener"><i class="bi bi-play-circle"></i> Ver página en vivo</a>
+          <a href="https://github.com/stivenzambrano0208DJ/APK-OFFLINE" class="plink sec" target="_blank" rel="noopener"><i class="bi bi-github"></i> Código</a>
+        </div>
+      </div>
+    </article>
+
   </div>
 
   <div class="stats reveal">
-    <div class="stat"><i class="bi bi-rocket-takeoff"></i><div class="num" data-count="2">0</div><div class="lbl">Apps en producción</div></div>
+    <div class="stat"><i class="bi bi-rocket-takeoff"></i><div class="num" data-count="3">0</div><div class="lbl">Apps en producción</div></div>
     <div class="stat"><i class="bi bi-cpu"></i><div class="num" data-count="10" data-suffix="+">0</div><div class="lbl">Tecnologías</div></div>
     <div class="stat"><i class="bi bi-people"></i><div class="num" data-count="3">0</div><div class="lbl">Roles de usuario</div></div>
     <div class="stat"><i class="bi bi-code-square"></i><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">Código propio</div></div>
@@ -283,13 +312,13 @@
     <h2>¿Trabajamos juntos?</h2>
     <p>¿Tienes un proyecto en mente o buscas un desarrollador? Escríbeme, respondo rápido.</p>
     <div class="social-row">
-      <a href="mailto:jjulian.gutierrez08@gmail.com" class="social" title="Email"><i class="bi bi-envelope-fill"></i></a>
-      <a href="#" class="social" title="GitHub"><i class="bi bi-github"></i></a>
+      <a href="mailto:stivenzambrano0208@gmail.com" class="social" title="Email"><i class="bi bi-envelope-fill"></i></a>
+      <a href="https://github.com/stivenzambrano0208DJ" class="social" title="GitHub" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
       <a href="#" class="social" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
       <a href="#" class="social" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
     </div>
     <div style="margin-top:34px">
-      <a href="mailto:jjulian.gutierrez08@gmail.com" class="btn btn-primary"><i class="bi bi-send"></i> Enviar un mensaje</a>
+      <a href="mailto:stivenzambrano0208@gmail.com" class="btn btn-primary"><i class="bi bi-send"></i> Enviar un mensaje</a>
     </div>
   </div>
 </section>
