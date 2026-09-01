@@ -159,12 +159,8 @@
   .project{background:var(--surface);border:1px solid var(--gray-200);border-radius:22px;overflow:hidden;transition:.35s;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(13,64,116,.06)}
   .project:hover{transform:translateY(-8px);border-color:var(--blue-300);box-shadow:var(--shadow-lg)}
   .project-cover{height:170px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-  .cover-neiv{background:linear-gradient(135deg,var(--blue-600),var(--blue-400))}
-  .cover-dj{background:linear-gradient(135deg,var(--blue-900),var(--blue-600))}
-  .cover-fo{background:linear-gradient(135deg,var(--blue-500),var(--blue-600))}
-  .cover-ocr{background:linear-gradient(135deg,#0891b2,#059669)}
-  .cover-juicios{background:linear-gradient(135deg,#2c7a00,#39a900)}
-  .project-cover .glyph{font-size:4rem;color:#fff;z-index:2;filter:drop-shadow(0 4px 14px rgba(0,0,0,.25))}
+  .cover-neiv,.cover-dj,.cover-fo,.cover-ocr,.cover-juicios{background:linear-gradient(135deg,#13315c,#2563eb)}
+  .project-cover .glyph{font-size:3.1rem;color:#fff;z-index:2;width:90px;height:90px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:22px;box-shadow:0 8px 22px rgba(0,0,0,.18)}
   .project-cover::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,rgba(255,255,255,.3),transparent 55%)}
   .cover-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:100% 22px;opacity:.6}
   .project-body{padding:26px;flex:1;display:flex;flex-direction:column}
